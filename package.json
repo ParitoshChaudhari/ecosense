@@ -11,7 +11,6 @@
   "dependencies": {
     "autoprefixer": "10.4.16",
     "firebase": "^10.4.0",
-    "firebase-admin": "^11.10.1",
     "leaflet": "^1.9.4",
     "next": "13.5.2",
     "postcss": "8.4.30",

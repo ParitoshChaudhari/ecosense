@@ -1,5 +1,9 @@
 import React from "react";
-import Map from "../Map/Map";
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import("../Map/Map"), {
+  ssr: false,
+});
 
 const Body = () => {
   return (
