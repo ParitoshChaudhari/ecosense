@@ -1,0 +1,71 @@
+/* Font  */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 400;
+}
+
+/* Table Values Color */
+.Good {
+  font-weight: bolder;
+  background-color: #00b050;
+}
+.Satisfactory {
+  font-weight: bolder;
+  background-color: #92d050;
+}
+.Moderate {
+  font-weight: bolder;
+  background-color: #ffff00;
+}
+.Poor {
+  font-weight: bolder;
+  background-color: #ff9900;
+}
+.Very-Poor {
+  font-weight: bolder;
+  background-color: #ff0000;
+}
+.Severe {
+  font-weight: bolder;
+  background-color: #c00000;
+}
+
+/* Table Styling */
+
+td,
+tr {
+  border: solid black;
+  font-family: "Poppins", sans-serif;
+}
+
+thead {
+  border: 3px solid black;
+}
+
+tr:hover {
+  background-color: rgb(215, 209, 209);
+}
+
+thead > tr:hover {
+  background-color: rgb(31, 41, 55);
+}
+
+/* Custom table */
+.cb-table {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.custom-width {
+  width: 81.333333%;
+}
+
+.txt-start {
+  text-align: start;
+  padding-left: 20px;
+}
+.txt-white {
+  color: white;
+}
