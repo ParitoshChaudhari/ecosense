@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="copyright-area">
           <div className="container">
             <div className="row">
-              <div classNameName="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+              <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                 <div className="footer-menu me-5">
                   <ul>
                     <li>

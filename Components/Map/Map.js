@@ -13,7 +13,7 @@ const Map = () => {
   const database = FirebaseConfig();
   const dbref = ref(database);
 
-  console.log("Getting Data");
+  // console.log("Getting Data");
   useEffect(() => {
     // Get the markers from the Firebase Database
     get(child(dbref, "aqi/update")).then((snapshot) => {
@@ -31,11 +31,11 @@ const Map = () => {
         newMarkers.push(marker);
       });
       setMarkers(newMarkers);
-      console.log(markers);
+      // console.log(markers);
     });
   }, []);
-  console.log("Data Retrived");
-  console.log(markers);
+  // console.log("Data Retrived");
+  // console.log(markers);
   const updateData = () => {
     // Get the markers from the Firebase Database
     get(child(dbref, "aqi/update")).then((snapshot) => {
@@ -53,7 +53,7 @@ const Map = () => {
         newMarkers.push(marker);
       });
       setMarkers(newMarkers);
-      console.log(markers);
+      // console.log(markers);
     });
   };
   setInterval(updateData, 2000);
@@ -82,7 +82,7 @@ const Map = () => {
             }
             key={marker.id}
           >
-            {console.log({ i })}
+            {/* {console.log({ i })} */}
             <Popup>
               <>
                 <h2>AQI: {marker.aqi}</h2>

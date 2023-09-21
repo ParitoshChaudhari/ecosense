@@ -6,18 +6,18 @@ const Meter = (props) => {
     <>
       <h1>Gauge - 6 levels</h1>
 
-      <div class="gauge-wrapper">
-        <div class={"gauge four rischio" + props.lvl}>
-          <div class="slice-colors">
-            <div class="st slice-item"></div>
-            <div class="st slice-item"></div>
-            <div class="st slice-item"></div>
-            <div class="st slice-item"></div>
+      <div className="gauge-wrapper">
+        <div className={"gauge four rischio" + props.lvl}>
+          <div className="slice-colors">
+            <div className="st slice-item"></div>
+            <div className="st slice-item"></div>
+            <div className="st slice-item"></div>
+            <div className="st slice-item"></div>
           </div>
-          <div class="needle"></div>
-          <div class="gauge-center">
-            <div class="label">RISK</div>
-            <div class="number">Low</div>
+          <div className="needle"></div>
+          <div className="gauge-center">
+            <div className="label">RISK</div>
+            <div className="number">Low</div>
           </div>
         </div>
       </div>

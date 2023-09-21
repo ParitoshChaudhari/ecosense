@@ -20,13 +20,13 @@ const Table = () => {
                 {/* <td>0-50</td>
                 <td>Good</td> */}
                 <td className="Good">Good (0-50)</td>
-                <td class="txt-start">Minimal impact</td>
+                <td className="txt-start">Minimal impact</td>
               </tr>
               <tr>
                 {/* <td>51-100</td>
                 <td>Satisfactory</td> */}
                 <td className="Satisfactory">Satisfactory (51-100)</td>
-                <td class="txt-start">
+                <td className="txt-start">
                   Minor breathing discomfort to sensitive people
                 </td>
               </tr>
@@ -34,7 +34,7 @@ const Table = () => {
                 {/* <td>101-200</td>
                 <td>Moderate</td> */}
                 <td className="Moderate">Moderate (101-200)</td>
-                <td class="txt-start">
+                <td className="txt-start">
                   Breathing discomfort to the people with lungs, asthma and
                   heart diseases
                 </td>
@@ -43,7 +43,7 @@ const Table = () => {
                 {/* <td>201-300</td>
                 <td>Poor</td> */}
                 <td className="Poor">Poor (201-300)</td>
-                <td class="txt-start">
+                <td className="txt-start">
                   Breathing discomfort to most people on prolonged exposure
                 </td>
               </tr>
@@ -51,7 +51,7 @@ const Table = () => {
                 {/* <td>301-400</td>
                 <td>Very Poor</td> */}
                 <td className="Very-Poor">Very Poor (301-400)</td>
-                <td class="txt-start">
+                <td className="txt-start">
                   Respiratory illness on prolonged exposure
                 </td>
               </tr>
@@ -59,7 +59,7 @@ const Table = () => {
                 {/* <td>401-500 </td>
                 <td>Severe</td> */}
                 <td className="Severe">Severe (401-500)</td>
-                <td class="txt-start">
+                <td className="txt-start">
                   Affects healthy people and seriously impacts those with
                   existing diseases
                 </td>
