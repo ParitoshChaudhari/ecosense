@@ -85,7 +85,6 @@ ul {
 }
 .footer-widget ul li {
   display: inline-block;
-  float: left;
   width: 50%;
   margin-bottom: 12px;
 }
@@ -119,4 +118,15 @@ ul {
 .footer-menu li a {
   font-size: 14px;
   color: #878787;
+}
+
+
+/* Mobile  */
+@media screen and (max-width: 768px) {
+  .footer-logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 }
