@@ -9,3 +9,11 @@ nav {
   display: flex;
   font-family: "Poppins", sans-serif;
 }
+
+
+/* Mobile  */
+@media screen and (max-width: 768px) {
+  nav{
+    height: 8vh;
+  }
+}
