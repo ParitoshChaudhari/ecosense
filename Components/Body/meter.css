@@ -170,6 +170,7 @@ h1 {
 .meter-container {
   height: 50vh;
   background-color: #D9EEFF;
+  border-radius: 2rem;
 }
 
 .info-container {
@@ -180,24 +181,8 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-radius: 2rem;
 }
-
-
-
-/* Mobile  */
-@media screen and (max-width: 768px) {
-  .meter-container {
-    height: 35vh;
-    width: auto;
-  }
-  .info-container{
-    height: 45vh;
-    width: auto;
-  }
-  
-}
-
-
 
 /* Meter Table */
 .table-container{
@@ -215,4 +200,28 @@ h1 {
 .custom-cell {
   width: 300px;
   height: 50px;
+}
+
+
+/* Mobile  */
+@media screen and (max-width: 768px) {
+  .meter-container {
+    height: 35vh;
+    width: auto;
+  }
+  .info-container{
+    height: 45vh;
+    width: auto;
+    border-radius: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .meter-container{
+    height: 28vh;
+    border-radius: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
 }
