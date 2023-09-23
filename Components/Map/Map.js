@@ -15,47 +15,64 @@ const Map = () => {
 
   const getData = () => {
     const newMarkers = [];
-    get(child(dbref, "aqi/update")).then((snapshot) => {
+    get(child(dbref, "update")).then((snapshot) => {
       snapshot.forEach((element) => {
-        const marker = {
-          lat: element.val().lat,
-          long: element.val().long,
-          co: element.val().co,
-          temp: element.val().temperature,
-          humid: element.val().humidity,
-          aqi: element.val().aqi,
-          id: element.val().id,
-          pm2: element.val().pm2,
-          type: "aqi",
-        };
+        var marker = {};
+        if (element.val().type == "wqi") {
+          marker = {
+            id: element.val().id,
+            tds: element.val().tds,
+            lat: element.val().lat,
+            long: element.val().long,
+            ph: element.val().ph,
+            purity: element.val().purity,
+            wqi: element.val().wqi,
+            type: element.val().type,
+          };
+        }
+        if (element.val().type == "aqi") {
+          marker = {
+            lat: element.val().lat,
+            long: element.val().long,
+            co: element.val().co,
+            temp: element.val().temperature,
+            humid: element.val().humidity,
+            aqi: element.val().aqi,
+            id: element.val().id,
+            pm2: element.val().pm2,
+            type: element.val().tyep,
+          };
+        }
+
         newMarkers.push(marker);
+        console.log(element.key);
       });
       setMarkers(newMarkers);
-      console.log(markers);
     });
-    get(child(dbref, "wqi/update")).then((snapshot) => {
-      snapshot.forEach((element) => {
-        const marker = {
-          id: element.val().id,
-          tds: element.val().tds,
-          lat: element.val().lat,
-          long: element.val().long,
-          ph: element.val().ph,
-          purity: element.val().purity,
-          wqi: element.val().wqi,
-          type: "wqi",
-        };
-        newMarkers.push(marker);
-      });
-      setMarkers(newMarkers);
-      console.log(markers);
-    });
+    // get(child(dbref, "aqi/update")).then((snapshot) => {
+    //   snapshot.forEach((element) => {
+    //     const marker = {
+    //       lat: element.val().lat,
+    //       long: element.val().long,
+    //       co: element.val().co,
+    //       temp: element.val().temperature,
+    //       humid: element.val().humidity,
+    //       aqi: element.val().aqi,
+    //       id: element.val().id,
+    //       pm2: element.val().pm2,
+    //       type: "aqi",
+    //     };
+    //     newMarkers.push(marker);
+    //     console.log(element.key);
+    //   });
+    //   setMarkers(newMarkers);
+    // });
   };
   // console.log("Getting Data");
   useEffect(() => {
     // Get the markers from the Firebase Database
     getData();
-    setInterval(getData, 30 * 1000);
+    // setInterval(getData, 30 * 1000);
   }, []);
   // console.log("Data Retrived");
   // console.log(markers);
@@ -77,7 +94,7 @@ const Map = () => {
               new Icon({
                 iconUrl:
                   "https://awm.pythonanywhere.com/static/aqi/" +
-                  (marker.type == "wqi" ? marker.wqi : marker.aqi) +
+                  (marker.wqi == undefined ? marker.aqi : marker.wqi) +
                   ".png",
                 iconSize: [110, 110], // size of the icon
               })
