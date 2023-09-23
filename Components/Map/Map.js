@@ -33,6 +33,23 @@ const Map = () => {
       setMarkers(newMarkers);
       console.log(markers);
     });
+    get(child(dbref, "wqi/update")).then((snapshot) => {
+      snapshot.forEach((element) => {
+        const marker = {
+          id: element.val().id,
+          tds: element.val().tds,
+          lat: element.val().lat,
+          long: element.val().long,
+          ph: element.val().ph,
+          purity: element.val().purity,
+          wqi: element.val().wqi,
+          type: "wqi",
+        };
+        newMarkers.push(marker);
+      });
+      setMarkers(newMarkers);
+      console.log(markers);
+    });
   };
   // console.log("Getting Data");
   useEffect(() => {
@@ -41,7 +58,7 @@ const Map = () => {
   }, []);
   // console.log("Data Retrived");
   // console.log(markers);
-  setInterval(getData, 60 * 1000);
+  setInterval(getData, 20 * 1000);
   return (
     <>
       <MapContainer
@@ -60,7 +77,7 @@ const Map = () => {
               new Icon({
                 iconUrl:
                   "https://awm.pythonanywhere.com/static/aqi/" +
-                  marker.aqi +
+                  (marker.type === "aqi" ? marker.aqi : marker.wqi) +
                   ".png",
                 iconSize: [110, 110], // size of the icon
               })
@@ -69,19 +86,35 @@ const Map = () => {
           >
             {/* {console.log({ i })} */}
             <Popup>
-              <>
-                <div className="aqiOpt">
-                  <h2>AQI: {marker.aqi} ppm</h2>
-                  <hr />
-                  <h3>CO Level: {marker.co} ppm</h3>
-                  <hr />
-                  <h3>PM2.5: {marker.pm2} ppm</h3>
-                  <hr />
-                  <h3>Temperaure: {marker.temp}°C</h3>
-                  <hr />
-                  <h3>Humidity: {marker.humid}%</h3>
-                </div>
-              </>
+              {marker.type === "aqi" ? (
+                <>
+                  <div className="aqiOpt">
+                    <h2>AQI: {marker.aqi} ppm</h2>
+                    <hr />
+                    <h3>CO Level: {marker.co} ppm</h3>
+                    <hr />
+                    <h3>PM2.5: {marker.pm2} ppm</h3>
+                    <hr />
+                    <h3>Temperaure: {marker.temp}°C</h3>
+                    <hr />
+                    <h3>Humidity: {marker.humid}%</h3>
+                    <hr />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="aqiOpt">
+                    <h2>WQI: {marker.wqi} ppm</h2>
+                    <hr />
+                    <h3>TDS: {marker.tds} ppm</h3>
+                    <hr />
+                    <h3>PH Level: {marker.ph} pH</h3>
+                    <hr />
+                    <h3>Purity: {marker.purity} %</h3>
+                    <hr />
+                  </div>
+                </>
+              )}
             </Popup>
           </Marker>
         ))}
