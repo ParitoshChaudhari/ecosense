@@ -55,7 +55,7 @@ const Map = () => {
   useEffect(() => {
     // Get the markers from the Firebase Database
     getData();
-    setInterval(getData, 20 * 1000);
+    setInterval(getData, 30 * 1000);
   }, []);
   // console.log("Data Retrived");
   // console.log(markers);
@@ -77,7 +77,7 @@ const Map = () => {
               new Icon({
                 iconUrl:
                   "https://awm.pythonanywhere.com/static/aqi/" +
-                  (marker.type == "aqi" ? marker.aqi : marker.wqi) +
+                  (marker.type == "wqi" ? marker.wqi : marker.aqi) +
                   ".png",
                 iconSize: [110, 110], // size of the icon
               })
@@ -86,7 +86,20 @@ const Map = () => {
           >
             {/* {console.log({ i })} */}
             <Popup>
-              {marker.type == "aqi" ? (
+              {marker.type == "wqi" ? (
+                <>
+                  <div className="aqiOpt">
+                    <h2>WQI: {marker.wqi} ppm</h2>
+                    <hr />
+                    <h3>TDS: {marker.tds} ppm</h3>
+                    <hr />
+                    <h3>PH Level: {marker.ph} pH</h3>
+                    <hr />
+                    <h3>Purity: {marker.purity} %</h3>
+                    <hr />
+                  </div>
+                </>
+              ) : (
                 <>
                   <div className="aqiOpt">
                     <h2>AQI: {marker.aqi} ppm</h2>
@@ -98,19 +111,6 @@ const Map = () => {
                     <h3>Temperaure: {marker.temp}°C</h3>
                     <hr />
                     <h3>Humidity: {marker.humid}%</h3>
-                    <hr />
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="aqiOpt">
-                    <h2>WQI: {marker.wqi} ppm</h2>
-                    <hr />
-                    <h3>TDS: {marker.tds} ppm</h3>
-                    <hr />
-                    <h3>PH Level: {marker.ph} pH</h3>
-                    <hr />
-                    <h3>Purity: {marker.purity} %</h3>
                     <hr />
                   </div>
                 </>
