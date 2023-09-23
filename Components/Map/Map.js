@@ -55,10 +55,10 @@ const Map = () => {
   useEffect(() => {
     // Get the markers from the Firebase Database
     getData();
+    setInterval(getData, 20 * 1000);
   }, []);
   // console.log("Data Retrived");
   // console.log(markers);
-  setInterval(getData, 20 * 1000);
   return (
     <>
       <MapContainer
@@ -77,7 +77,7 @@ const Map = () => {
               new Icon({
                 iconUrl:
                   "https://awm.pythonanywhere.com/static/aqi/" +
-                  (marker.type === "aqi" ? marker.aqi : marker.wqi) +
+                  (marker.type == "aqi" ? marker.aqi : marker.wqi) +
                   ".png",
                 iconSize: [110, 110], // size of the icon
               })
@@ -86,7 +86,7 @@ const Map = () => {
           >
             {/* {console.log({ i })} */}
             <Popup>
-              {marker.type === "aqi" ? (
+              {marker.type == "aqi" ? (
                 <>
                   <div className="aqiOpt">
                     <h2>AQI: {marker.aqi} ppm</h2>
