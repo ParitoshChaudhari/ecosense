@@ -23,9 +23,9 @@ const Faq = () => {
         </h2>
         {faqData.map((item, index) => (
           <div key={index} className="mb-4">
-            <div className="bg-white rounded-lg shadow-md p-4">
-              <div className="font-semibold text-lg">{item.question}</div>
-              <div className="mt-2">{item.answer}</div>
+            <div className="bg-white rounded-xl shadow-md p-4 mx-7 ">
+              <div className="font-semibold text-lg text-center">{item.question}</div>
+              <div className="mt-2 text-justify">{item.answer}</div>
             </div>
           </div>
         ))}
