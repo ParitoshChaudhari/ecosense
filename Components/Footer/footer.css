@@ -59,6 +59,9 @@ ul {
 }
 .footer-logo img {
   max-width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .footer-text p {
   margin-bottom: 14px;
