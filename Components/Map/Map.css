@@ -54,7 +54,7 @@
 @media screen and (max-width: 768px) {
   .leaflet-container {
     height: 50vh;
-    margin-left: 3vh;
-    margin-right: 3vh;
+    /* margin-left: 3vh;
+    margin-right: 3vh; */
   }
 }
